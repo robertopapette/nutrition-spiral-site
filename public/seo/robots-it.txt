@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /previews/
+Disallow: /sandbox-audio
+
+Sitemap: https://www.nutritionspiral.it/sitemap.xml

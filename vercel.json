@@ -1,25 +1,122 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
+      "src": "^/it(?:/(?:index\\.html)?)?$",
       "has": [
         {
           "type": "host",
-          "value": "www.nutritionspiral.it"
+          "value": "^(?:www\\.)?nutritionspiral\\.(?:com|it)$"
         }
       ],
-      "destination": "/it/index.html"
+      "status": 301,
+      "headers": {
+        "Location": "https://www.nutritionspiral.it/"
+      }
     },
     {
-      "source": "/",
+      "src": "^/index\\.html$",
       "has": [
         {
           "type": "host",
-          "value": "nutritionspiral.it"
+          "value": "^(?:www\\.)?nutritionspiral\\.it$"
         }
       ],
-      "destination": "/it/index.html"
+      "status": 301,
+      "headers": {
+        "Location": "https://www.nutritionspiral.it/"
+      }
+    },
+    {
+      "src": "^/index\\.html$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.com$"
+        }
+      ],
+      "status": 301,
+      "headers": {
+        "Location": "https://www.nutritionspiral.com/"
+      }
+    },
+    {
+      "src": "^/robots\\.txt$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.it$"
+        }
+      ],
+      "dest": "/seo/robots-it.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "src": "^/sitemap\\.xml$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.it$"
+        }
+      ],
+      "dest": "/seo/sitemap-it.xml",
+      "headers": {
+        "Content-Type": "application/xml; charset=utf-8"
+      }
+    },
+    {
+      "src": "^/robots\\.txt$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.com$"
+        }
+      ],
+      "dest": "/seo/robots-en.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "src": "^/sitemap\\.xml$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.com$"
+        }
+      ],
+      "dest": "/seo/sitemap-en.xml",
+      "headers": {
+        "Content-Type": "application/xml; charset=utf-8"
+      }
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.it$"
+        }
+      ],
+      "dest": "/it/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/.*$",
+      "has": [
+        {
+          "type": "host",
+          "value": "^(?:www\\.)?nutritionspiral\\.(?:com|it)$"
+        }
+      ],
+      "status": 404,
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      }
     }
   ]
 }
