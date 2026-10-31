@@ -1,5 +1,5 @@
 import React from 'react';
 import PublicPresentation from '../components/PublicPresentation';
 
-// Public Italian presentation; the legacy protected app remains on its original branch.
+// Public Italian presentation.
 export default function ItalianWIP(){return <PublicPresentation language="it"/>;}
