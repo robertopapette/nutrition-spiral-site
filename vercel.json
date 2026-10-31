@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.nutritionspiral.it"
+        }
+      ],
+      "destination": "/it/index.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "nutritionspiral.it"
+        }
+      ],
+      "destination": "/it/index.html"
+    }
+  ]
+}

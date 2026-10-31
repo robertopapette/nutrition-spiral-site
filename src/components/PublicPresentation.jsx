@@ -6,8 +6,8 @@ const copy={
  it:{description:'Un modo più consapevole di comprendere le proprie abitudini alimentari.',status:'In preparazione.',image:'Logo Nutrition Spiral.',languageNavigation:'Lingua',italian:'Italiano',english:'English'}
 };
 
-// Public language links share the existing .com origin; domain redirects are unchanged.
-export default function PublicPresentation({language='en',languageLinks={it:'/it/',en:'/'}}){
+// Final public language domains. Domain settings are managed separately.
+export default function PublicPresentation({language='en',languageLinks={it:'https://www.nutritionspiral.it/',en:'https://www.nutritionspiral.com/'}}){
  const text=copy[language]||copy.en;
  return <main className="ns-public" lang={language}>
   {languageLinks?<nav className="ns-public-languages" aria-label={text.languageNavigation}>

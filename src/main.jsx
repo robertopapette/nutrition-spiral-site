@@ -4,7 +4,6 @@ import App from './App.jsx';
 import './index.css';
 import InternationalWIP from "./pages/InternationalWIP.jsx";
 import ItalianWIP from "./pages/ItalianWIP.jsx";
-import WorkInProgressGate from './components/WorkInProgressGate.jsx';
 
 
 const hostname = window.location.hostname;
@@ -24,9 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {isCOM ? (
       isItalianPublicPage ? <ItalianWIP /> : <InternationalWIP />
     ) : isIT ? (
-      <WorkInProgressGate>
-        <App />
-      </WorkInProgressGate>
+      <ItalianWIP />
     ) : (
       <App />
     )}
